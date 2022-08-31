@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 
 default_language_version:
-  python: python3.9
+  python: python3.10.5
 
 minimum_pre_commit_version: 2.13.0
 
@@ -23,7 +23,6 @@ repos:
         exclude: "devcontainer.json"
       - id: check-merge-conflict
       - id: check-symlinks
-      - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
       - id: check-docstring-first
       - id: debug-statements

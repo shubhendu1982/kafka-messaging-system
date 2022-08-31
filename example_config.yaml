@@ -1,0 +1,6 @@
+api_root_path: /
+auto_reload: true
+host: 127.0.0.1
+log_level: info
+port: 8080
+workers: 1
