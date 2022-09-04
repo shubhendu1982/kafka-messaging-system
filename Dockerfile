@@ -1,7 +1,12 @@
-FROM python:3.10.6-bullseye
+FROM python:3.10.6-buster
 
 COPY . /service
 WORKDIR /service
+
+# remove unneeded packages with vulnerabilities
+RUN apt-get purge -y curl "libcurl*"
+RUN apt-get autoremove -y
+
 RUN pip install -r requirements.txt
 RUN pip install .
 

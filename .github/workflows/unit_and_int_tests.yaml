@@ -25,4 +25,3 @@ jobs:
           pytest \
             --cov="${REL_SRC_DIR_PATH}" \
             --cov-report=xml
-

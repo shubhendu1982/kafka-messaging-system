@@ -9,26 +9,21 @@ jobs:
     env:
       REL_SRC_DIR_PATH: ./src
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
       - name: Set up Python 3.10
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.10.5
+          cache: 'pip' # caching pip dependencies
 
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
 
-      - uses: pre-commit/action@v2.0.3
-
-      - name: black
-        run: |
-          black --check .
-
-      - name: isort
-        run: |
-          isort --check --profile black .
+      - uses: pre-commit/action@v3.0.0
+        env:
+          SKIP: no-commit-to-branch
 
       - name: mypy
         run: |
@@ -48,4 +43,3 @@ jobs:
       - name: bandit
         run: |
           bandit -r "${REL_SRC_DIR_PATH}"
-

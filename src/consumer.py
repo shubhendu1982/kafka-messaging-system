@@ -9,16 +9,20 @@ def consume():
     """
     consume
     """
+
+    # create consumer with certificates mounted in /data/
     consumer = KafkaConsumer(
-        "my-topic", group_id="my-group",
+        "my-topic",
+        group_id="my-group",
         bootstrap_servers=["my-cluster-kafka-bootstrap:9093"],
-        security_protocol='SSL',
+        security_protocol="SSL",
         ssl_check_hostname=True,
-        ssl_cafile='/data/crt/ca.crt',
-        ssl_certfile='/data/usercrt/user.crt',
-        ssl_keyfile='/data/usercrt/user.key'
+        ssl_cafile="/data/crt/ca.crt",
+        ssl_certfile="/data/usercrt/user.crt",
+        ssl_keyfile="/data/usercrt/user.key",
     )
 
+    # Print the messages
     for message in consumer:
         print(
             f" topic: {message.topic} partition: {message.partition} "
