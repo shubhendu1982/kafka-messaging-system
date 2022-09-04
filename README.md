@@ -1,4 +1,4 @@
-# Secure kafka-messaging-system 
+# Secure kafka-messaging-system
 
 This project demonstrates some features of the Apache Kafka system. It is implemented using the kafka-python library for python. We need to ensure that kafka instance is accesed only via tls and also a topic can be restricted to a set of microservices(zero trust microservice).After some research we found strimji kafka operator is sutable for our need. This repositry will describe how to setup a full blown kafka cluster using the operator and sample python code to communicate with this cluster(consumer.py and producer.py).
 
