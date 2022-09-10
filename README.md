@@ -244,7 +244,7 @@ spec:
        volumeMounts:
        - name: secret-volume
          mountPath: /data/crt
-       - name: user-secret-volume
+       - name: my-user-secret-volume
          mountPath: /data/usercrt
        command: ["python"]
        args: ["/service/src/producer.py"]
@@ -274,7 +274,7 @@ spec:
        volumeMounts:
        - name: secret-volume
          mountPath: /data/crt
-       - name: user-secret-volume
+       - name: my-user-secret-volume
          mountPath: /data/usercrt
        command: ["python"]
        args: ["/service/src/consumer.py"]
@@ -307,3 +307,8 @@ Each merge to main branch executes CD pipeline which is also using github action
 ### Security scan of images
 
 Security scanning using trivy of the image is performed as part of CD ensures.Trivy is a comprehensive and easy-to-use open source vulnerability scanner for container images,file systems, and Git repositories, as well as for configuration issues. Trivy detects vulnerabilities of OS packages (Alpine, RHEL, CentOS, etc.) and language-specific packages (Bundler, Composer, npm, yarn, etc.).
+
+## To run precommit hook Run command bedore checkin
+```
+pre-commit run --all-files
+```
