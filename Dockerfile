@@ -3,12 +3,13 @@ FROM python:3.10.6-buster
 COPY . /service
 WORKDIR /service
 
-# remove unneeded packages with vulnerabilities
-RUN apt-get purge -y curl "libcurl*" "libxslt*" "libfreetype6*" "libfribidi0" "zlib1g*"
-RUN apt-get autoremove -y
 
 RUN pip install -r requirements.txt
 RUN pip install .
+
+# remove unneeded packages with vulnerabilities
+RUN apt-get purge -y curl "libcurl*" "libxslt*" "libfreetype6*" "libfribidi0" "zlib1g*"
+RUN apt-get autoremove -y
 
 # create new user and execute as that user
 RUN useradd --create-home appuser
