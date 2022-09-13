@@ -4,7 +4,7 @@ COPY . /service
 WORKDIR /service
 
 # remove unneeded packages with vulnerabilities
-RUN apt-get purge -y curl "libcurl*" "libxslt*"
+RUN apt-get purge -y curl "libcurl*" "libxslt*" "libfreetype6*" "libfribidi0" "zlib1g*"
 RUN apt-get autoremove -y
 
 RUN pip install -r requirements.txt
