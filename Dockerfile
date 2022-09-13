@@ -8,7 +8,9 @@ RUN pip install -r requirements.txt
 RUN pip install .
 
 # remove unneeded packages with vulnerabilities
-RUN apt-get purge -y curl "libcurl*" "libxslt*" "libfreetype6*" "libfribidi0" "zlib1g*"
+
+RUN apt-get update -y
+RUN apt-get purge -y curl "libcurl*" "libxslt*"
 RUN apt-get autoremove -y
 
 # create new user and execute as that user
