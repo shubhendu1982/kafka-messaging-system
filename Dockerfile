@@ -1,4 +1,4 @@
-FROM python:3.9.14-slim-buster
+FROM python:3.12.0b1-slim-buster
 
 COPY . /service
 WORKDIR /service
